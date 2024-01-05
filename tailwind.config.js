@@ -7,7 +7,11 @@ module.exports = {
     ],
     prefix: "tw-",
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                viga: ['Viga', 'Arial'],
+            },
+        },
     },
     plugins: [],
-}
+};

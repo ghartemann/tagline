@@ -12,6 +12,11 @@ module.exports = {
                 viga: ['Viga', 'Arial'],
             },
         },
+        colors: {
+            lemony: "#FCFF5B",
+            azulero: "#451FDF",
+            'azulero-dark': "#1F009C"
+        }
     },
     plugins: [],
 };

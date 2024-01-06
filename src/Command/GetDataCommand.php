@@ -36,17 +36,13 @@ class GetDataCommand extends Command
         $progressBar->start();
 
         foreach ($trending as $movie) {
-            if (!$this->movieManager->findOneBy(['tmdbId' => $movie['id']])) {
-                $this->createEntry($movie, MovieTypeEnum::TRENDING->value);
-            }
+            $this->createOrUpdate($movie, MovieTypeEnum::TRENDING->value);
 
             $progressBar->advance();
         }
 
         foreach ($topRated as $movie) {
-            if (!$this->movieManager->findOneBy(['tmdbId' => $movie['id']])) {
-                $this->createEntry($movie, MovieTypeEnum::TOP_RATED->value);
-            }
+            $this->createOrUpdate($movie, MovieTypeEnum::TOP_RATED->value);
 
             $progressBar->advance();
         }
@@ -54,13 +50,14 @@ class GetDataCommand extends Command
         return Command::SUCCESS;
     }
 
-    protected function createEntry($movie, $movieType): void
+    protected function createOrUpdate($movie, $movieType): void
     {
         $details = $this->tmdbApiConnector->getDetails($movie['id']);
         $detailsFr = $this->tmdbApiConnector->getDetailsFr($movie['id']);
 
-        $mov = new Movie();
+        $mov = $this->movieManager->findOneBy(['tmdbId' => $movie['id']]) ?? new Movie();
         $mov->setTitle($movie['title']);
+        $mov->setTitleFr($detailsFr['title']);
         $mov->setReleaseDate(new \DateTime($movie['release_date']));
         $mov->setCover($movie['poster_path']);
         $mov->setTagline($details['tagline']);

@@ -57,7 +57,7 @@ readonly class TmdbApiConnector
         try {
             $response = $this->client->request(
                 'GET',
-                "https://api.themoviedb.org/3/movie/$id&language=fr-FR",
+                "https://api.themoviedb.org/3/movie/$id?language=fr-FR",
                 [
                     'headers' => [
                         'accept' => 'application/json',

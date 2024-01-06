@@ -13,9 +13,7 @@ class MovieController extends AbstractController
     #[Route('/tagline', name: 'tagline')]
     public function getTagline(MovieManager $movieManager): JsonResponse
     {
-        $randomTagline = $movieManager->getRandomTagline();
-
-        return new JsonResponse($randomTagline);
+        return new JsonResponse($movieManager->getRandomTagline());
     }
 
     #[Route('/search/{query}', name: 'search')]

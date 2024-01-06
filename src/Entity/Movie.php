@@ -35,6 +35,9 @@ class Movie
     #[ORM\Column(type: Types::TEXT)]
     private ?string $taglineFr = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $titleFr = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class Movie
     public function setTaglineFr(string $taglineFr): static
     {
         $this->taglineFr = $taglineFr;
+
+        return $this;
+    }
+
+    public function getTitleFr(): ?string
+    {
+        return $this->titleFr;
+    }
+
+    public function setTitleFr(string $titleFr): static
+    {
+        $this->titleFr = $titleFr;
 
         return $this;
     }

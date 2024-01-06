@@ -3,7 +3,7 @@
         <div class="tw-w-[72rem] tw-flex tw-flex-col tw-gap-10 tw-items-center tw-justify-center">
             <img src="@images/logo.svg" alt="logo">
 
-            <div>Devinez titre du film dont le slogan (Tagline) est issu.</div>
+            <div class="tw-text-white">Devinez titre du film dont le slogan (Tagline) est issu.</div>
 
             <TaglineContainer></TaglineContainer>
         </div>

@@ -1,13 +1,10 @@
 <template>
-    <div class="tw-w-full">
-        <div class="tw-flex tw-justify-around">
-            <div class="tw-text-2xl tw-text-white">Trending</div>
-            <div class="tw-text-2xl tw-text-white">Top rated</div>
-        </div>
+    <div class="tw-w-full tw-flex tw-flex-col tw-items-center">
+        <TabSelector></TabSelector>
 
         <div class="tw-text-5xl tw-text-white">{{ tagline }}</div>
 
-        <div class="tw-w-1/2">
+        <div class="tw-w-1/2 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <v-autocomplete
                 @update:search="search($event)"
                 v-model="input"
@@ -21,6 +18,7 @@
                 hide-no-data
                 return-object
                 rounded
+                class="tw-w-full"
                 variant="solo"
                 :menu-props="{ maxHeight: 200 }">
                 <template #item="{ item }">
@@ -40,7 +38,7 @@
                 </template>
             </v-autocomplete>
 
-            <div class="tw-p-3 tw-rounded-xl tw-bg-azulero-dark tw-flex tw-items-center tw-justify-center tw-text-center tw-text-lemony tw-text-2xl hover:tw-brightness-110 tw-transition-all tw-cursor-pointer">
+            <div class="tw-px-5 tw-py-3 tw-rounded-xl tw-bg-azulero-dark tw-flex tw-items-center tw-justify-center tw-text-center tw-text-white hover:tw-text-lemony tw-text-2xl hover:tw-brightness-110 tw-transition-all tw-cursor-pointer hover:tw-shadow-md">
                 Envoyer
             </div>
         </div>
@@ -51,6 +49,7 @@
 import {ref, onMounted, watch} from 'vue';
 import axios from "axios";
 import {formatDate} from "../../../composables/Format.js";
+import TabSelector from "@pages/home/components/TabSelector.vue";
 
 const tagline = ref('');
 

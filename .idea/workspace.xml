@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47c8f7ec-18b2-4c52-bb24-2cbedff7935c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20240106073606.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/home/components/TabSelector.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/composables/StringComposable.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/composables/Format.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/TaglineContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/TaglineContainer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/GetDataCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/GetDataCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MovieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MovieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Api/Connector/TmdbApiConnector.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Api/Connector/TmdbApiConnector.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -237,7 +231,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704127667950</updated>
       <workItem from="1704127669219" duration="7289000" />
-      <workItem from="1704493343461" duration="9694000" />
+      <workItem from="1704493343461" duration="11872000" />
     </task>
     <servers />
   </component>

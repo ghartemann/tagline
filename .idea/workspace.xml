@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47c8f7ec-18b2-4c52-bb24-2cbedff7935c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/pages/home/components/TabSelector.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/home/components/AutocompleteContainer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/home/components/GuessesContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7eadc9a-a374-4116-acfa-d6ffddf641a5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7eadc9a-a374-4116-acfa-d6ffddf641a5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tagline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tagline.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/TabSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/TabSelector.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/TaglineContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/TaglineContainer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/MovieManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/MovieManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +197,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/guillaumehartemann/Dev/Projets/tagline",
+    "last_opened_file_path": "/Users/guillaumehartemann/Dev/Projets/tagline/assets/js/pages/home/components",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
@@ -211,6 +220,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/js/pages/home/components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/src/Service" />
@@ -222,6 +234,13 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -231,7 +250,9 @@
       <option name="presentableId" value="Default" />
       <updated>1704127667950</updated>
       <workItem from="1704127669219" duration="7289000" />
-      <workItem from="1704493343461" duration="11872000" />
+      <workItem from="1704493343461" duration="11900000" />
+      <workItem from="1704556413690" duration="99000" />
+      <workItem from="1704556536781" duration="5906000" />
     </task>
     <servers />
   </component>

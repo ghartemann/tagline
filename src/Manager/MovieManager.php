@@ -27,8 +27,9 @@ class MovieManager extends AbstractManager
 
     public function searchMovies(string $query): array
     {
-        $movies = $this->tmdbApiConnector->searchMovies($query);
+        $movies = $this->tmdbApiConnector->searchMovies($query)['results'];
+        $movies = array_filter($movies, fn($movie) => $movie['poster_path'] !== null && $movie['poster_path'] !== '' && $movie['release_date'] !== null && $movie['release_date'] !== '');
 
-        return $movies['results'];
+        return array_values($movies);
     }
 }

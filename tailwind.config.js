@@ -14,7 +14,8 @@ module.exports = {
             colors: {
                 lemony: "#FCFF5B",
                 azulero: "#451FDF",
-                'azulero-dark': "#1F009C"
+                'azulero-dark': "#1F009C",
+                'azulero-darker': "#1b007c"
             }
         }
     },

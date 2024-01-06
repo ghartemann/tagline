@@ -1,12 +1,14 @@
 <template>
-    <div class="tw-w-full tw-flex tw-justify-around">
-        <div v-for="tab in tabs"
-             @click="click(tab)"
-             class="tw-text-2xl tw-text-white tw-cursor-pointer"
-             :class="{'tw-text-lemony tw-border-lemony tw-border-b-2': tab.active}"
-        >
-            <v-icon>{{ tab.icon }}</v-icon>
-            {{ tab.name }}
+    <div class="tw-w-full tw-flex tw-justify-end">
+        <div class="tw-flex tw-justify-around tw-gap-10 tw-px-10">
+            <div v-for="tab in tabs"
+                 @click="click(tab)"
+                 class="tw-text-xl tw-text-white tw-cursor-pointer tw-py-2"
+                 :class="{'tw-text-lemony tw-border-lemony tw-border-b-4': tab.active}"
+            >
+                <v-icon>{{ tab.icon }}</v-icon>
+                {{ tab.name }}
+            </div>
         </div>
     </div>
 </template>
@@ -23,7 +25,7 @@ const tabs = ref([
         active: true,
     },
     {
-        name: 'Top rated',
+        name: 'Top 100',
         icon: 'mdi-trophy-outline',
         active: false,
     }

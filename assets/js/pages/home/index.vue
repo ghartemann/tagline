@@ -9,11 +9,21 @@
                 <TaglineLogo :theme="tab"></TaglineLogo>
 
                 <div class="tw-w-1/2 tw-flex tw-flex-col tw-gap-10 tw-items-center tw-justify-center">
-                    <TaglineContainer></TaglineContainer>
+                    <TaglineContainer
+                        :history="history"
+                        :loading="loading">
+                    </TaglineContainer>
 
-                    <AutocompleteContainer v-model="guess"></AutocompleteContainer>
+                    <AutocompleteContainer
+                        v-if="hasWon === false"
+                        v-model="guess"
+                        :history="history">
+                    </AutocompleteContainer>
 
-                    <GuessesContainer :guesses="guesses"></GuessesContainer>
+                    <GuessesContainer
+                        :history="history"
+                        :guesses="guesses">
+                    </GuessesContainer>
                 </div>
             </div>
         </div>
@@ -21,14 +31,17 @@
 </template>
 
 <script setup>
-import TaglineContainer from './components/TaglineContainer.vue'
+import {computed, onMounted, ref, watch} from "vue";
+import axios from "axios";
+
+import TaglineContainer from "@pages/home/components/TaglineContainer.vue";
 import AutocompleteContainer from "@pages/home/components/AutocompleteContainer.vue";
 import GuessesContainer from "@pages/home/components/GuessesContainer.vue";
-import {onMounted, ref, watch} from "vue";
-import axios from "axios";
 import TabSelector from "@pages/components/TabSelector.vue";
 import AboutMenu from "@pages/components/AboutMenu.vue";
 import TaglineLogo from "@pages/components/TaglineLogo.vue";
+
+const emit = defineEmits(["theme"]);
 
 const props = defineProps({
     theme: {
@@ -36,19 +49,69 @@ const props = defineProps({
         required: true
     }
 });
-
+const loading = ref(true);
 const verifying = ref(false);
-
 const tab = ref('trending');
+const guess = ref(null);
+const guesses = ref([]);
+const history = ref({});
 
-const emit = defineEmits(["theme"]);
+const hasWon = computed(() => {
+    let hasWon = false;
+
+    if (guesses.value.length > 0) {
+        hasWon = guesses.value[guesses.value.length - 1].result === true;
+    }
+
+    return hasWon;
+});
+
+onMounted(() => {
+    fetchTagline();
+
+    const guessesFromStorage = localStorage.getItem('guesses');
+
+    if (guessesFromStorage) {
+        guesses.value = JSON.parse(guessesFromStorage);
+    }
+});
+
+function fetchTagline() {
+    loading.value = true;
+
+    axios.get('/history/newest/trending').then((r) => {
+        history.value = r.data;
+    }).catch((e) => {
+        console.log(e);
+    }).finally(() => {
+        loading.value = false;
+    });
+}
+
+function verify(id) {
+    verifying.value = true;
+    loading.value = true;
+
+    axios.all([
+        axios.get('/history/verify/trending/' + id),
+        axios.get('/history/newest/' + tab.value)
+    ]).then(axios.spread((
+        verifyRequest,
+        historyRequest,
+    ) => {
+        guesses.value[guesses.value.length - 1].result = verifyRequest.data;
+        history.value = historyRequest.data;
+    })).catch((e) => {
+        console.error(e);
+    }).finally(() => {
+        verifying.value = false;
+        loading.value = false;
+    });
+}
 
 watch(tab, (value) => {
     emit('theme', value);
 });
-
-const guess = ref(null);
-const guesses = ref([]);
 
 watch(guess, (value) => {
     if (value) {
@@ -66,26 +129,6 @@ watch(guess, (value) => {
 watch(guesses, (value) => {
     localStorage.setItem('guesses', JSON.stringify(value));
 }, {deep: true});
-
-function verify(id) {
-    verifying.value = true;
-
-    axios.get('/history/verify/trending/' + id).then((r) => {
-        guesses.value[guesses.value.length - 1].result = r.data;
-    }).catch((e) => {
-        console.log(e);
-    }).finally(() => {
-        verifying.value = false;
-    });
-}
-
-onMounted(() => {
-    const guessesFromStorage = localStorage.getItem('guesses');
-
-    if (guessesFromStorage) {
-        guesses.value = JSON.parse(guessesFromStorage);
-    }
-});
 </script>
 
 <style scoped>

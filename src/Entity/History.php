@@ -26,6 +26,10 @@ class History
     #[ORM\Column(length: 255)]
     private ?string $type = null;
 
+    #[Groups(['front'])]
+    #[ORM\Column]
+    private ?int $nbWinners = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -63,6 +67,18 @@ class History
     public function setType(string $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getNbWinners(): ?int
+    {
+        return $this->nbWinners;
+    }
+
+    public function setNbWinners(int $nbWinners): static
+    {
+        $this->nbWinners = $nbWinners;
 
         return $this;
     }

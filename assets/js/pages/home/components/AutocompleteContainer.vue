@@ -23,7 +23,7 @@
                     :title="item.title"
                     class="tw-flex tw-gap-2"
                     rounded="xl"
-                    :subtitle="'(' + formatDate(item.raw.release_date, 'year') + ')'"
+                    :subtitle="'(' + useFormatDate(item.raw.release_date, 'year') + ')'"
                 >
                     <template #prepend>
                         <img :src="'https://www.themoviedb.org/t/p/original/' + item.raw.poster_path"
@@ -41,14 +41,21 @@
 <script setup>
 import {ref, watch} from 'vue';
 import axios from "axios";
-import {formatDate} from "../../../composables/Format.js";
+import {useFormatDate} from "@composables/Format";
+
+const model = defineModel();
+
+const props = defineProps({
+    history: {
+        type: Object,
+        required: true
+    }
+});
 
 const loading = ref(false);
 const selectedId = ref(null);
 const searchTimeout = ref(null);
 const results = ref([]);
-
-const model = defineModel();
 
 function search(value) {
     if (searchTimeout.value !== null) {

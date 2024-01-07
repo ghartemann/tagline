@@ -1,6 +1,6 @@
 <template>
     <div class="tw-w-full tw-h-[100vh] tw-flex tw-flex-col tw-justify-center tw-items-center tw-gap-10">
-        <img src="@images/logo.svg" alt="logo">
+        <TaglineLogo></TaglineLogo>
 
         <h1 class="tw-text-5xl tw-text-white tw-select-none">
             Well, that's a <span class="tw-text-lemony">404</span>.
@@ -17,6 +17,7 @@
 
 <script setup>
 import {ref} from "vue";
+import TaglineLogo from "@pages/components/TaglineLogo.vue";
 
 const taglines = ref([
     {

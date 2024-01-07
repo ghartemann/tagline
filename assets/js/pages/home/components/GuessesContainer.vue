@@ -1,6 +1,10 @@
 <template>
     <div :class="theme.textColor">{{ props.guesses.length }} / 5 guesses</div>
 
+    <div v-if="guesses.length > 0 && guesses[guesses.length - 1].result === true">
+        Congratulations! {{ nbWinnersHumanized }} found the answer before you did.
+    </div>
+
     <div class="tw-w-full tw-flex tw-flex-col-reverse tw-gap-5">
         <div v-for="guess in props.guesses" class="tw-flex tw-justify-between tw-items-center tw-rounded-full tw-p-4 tw-pl-6" :class="theme.bg.secondaryColor">
             <div class="tw-flex tw-gap-4 tw-items-center">
@@ -16,7 +20,7 @@
                     </div>
 
                     <div :class="theme.textColor">
-                        ({{ formatDate(guess.movie.release_date, 'year') }})
+                        ({{ useFormatDate(guess.movie.release_date, 'year') }})
                     </div>
                 </div>
             </div>
@@ -39,7 +43,7 @@
 </template>
 
 <script setup>
-import {formatDate} from "@composables/Format";
+import {useFormatDate, useFormatNumber} from "@composables/Format";
 import {useThemeStore} from "@stores/theme.js";
 import {computed} from "vue";
 
@@ -50,6 +54,30 @@ const props = defineProps({
     guesses: {
         type: Array,
         required: true
+    },
+    history: {
+        type: Object,
+        required: true
+    }
+});
+
+const nbWinners = computed(() => {
+    let nbWinners = 0;
+
+    if (Object.keys(props.history).length > 0) {
+        nbWinners = props.history.nbWinners;
+    }
+
+    return nbWinners;
+});
+
+const nbWinnersHumanized = computed(() => {
+    if (nbWinners.value === 0) {
+        return 'Nobody';
+    } else if (nbWinners.value === 1) {
+        return '1 person';
+    } else if (nbWinners.value > 1) {
+        return useFormatNumber(nbWinners.value) + ' people';
     }
 });
 </script>

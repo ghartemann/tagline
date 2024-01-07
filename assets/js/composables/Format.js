@@ -14,7 +14,7 @@ export function strikeOutText(text) {
     return textArray.join(' ');
 }
 
-export function formatDate(date, format) {
+export function useFormatDate(date, format) {
     date = moment(date);
 
     switch (format) {
@@ -25,4 +25,8 @@ export function formatDate(date, format) {
         default:
             return date.format('Do MMMM YYYY');
     }
+}
+
+export function useFormatNumber(number) {
+    return new Intl.NumberFormat('fr-FR').format(number);
 }

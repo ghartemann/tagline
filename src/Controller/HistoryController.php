@@ -19,6 +19,13 @@ class HistoryController extends AbstractController
     #[Route('/verify/{type}/{id}', name: 'verify')]
     public function verify(string $type, int $id, HistoryManager $historyManager): JsonResponse
     {
-        return new JsonResponse($historyManager->getNewest($type)->getMovie()->getTmdbId() === $id);
+        $result = $historyManager->getNewest($type)->getMovie()->getTmdbId() === $id;
+
+        if ($result === true) {
+            $historyManager->getNewest($type)->setNbWinners($historyManager->getNewest($type)->getNbWinners() + 1);
+            $historyManager->persist($historyManager->getNewest($type), true);
+        }
+
+        return new JsonResponse($result);
     }
 }

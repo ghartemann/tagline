@@ -13,7 +13,7 @@ export const useThemeStore = defineStore('themes', {
                 tertiaryColor: fullConfig.theme.colors['azulero-darker'],
                 logo: {
                     text: fullConfig.theme.colors.lemony,
-                    star: fullConfig.theme.colors['azulero-darker']
+                    star: fullConfig.theme.colors['azulero-dark']
                 }
             },
             bg: {
@@ -45,7 +45,7 @@ export const useThemeStore = defineStore('themes', {
                     tertiaryColor: fullConfig.theme.colors['azulero-darker'],
                     logo: {
                         text: fullConfig.theme.colors.lemony,
-                        star: fullConfig.theme.colors['azulero-darker']
+                        star: fullConfig.theme.colors['azulero-dark']
                     }
                 },
                 bg: {

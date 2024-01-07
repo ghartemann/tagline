@@ -27,6 +27,14 @@
                 You have 5 guesses. For each guess, you have to type<br>
                 the name of the movie you think the tagline is from.
             </div>
+
+            <a href="https://ghartemann.fr" target="_blank"
+               class="tw-flex tw-gap-2 tw-items-center"
+               :class="'hover:' + theme.text.accentColor"
+            >
+                <v-icon>mdi-link</v-icon>
+                <span class="tw-underline">ghartemann.fr</span>
+            </a>
         </div>
     </div>
 

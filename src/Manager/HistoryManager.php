@@ -23,6 +23,7 @@ class HistoryManager extends AbstractManager
         $history->setDate(new DateTime());
         $history->setMovie($movie);
         $history->setType($type);
+        $history->setNbWinners(0);
 
         $this->persist($history, true);
     }

@@ -5,20 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47c8f7ec-18b2-4c52-bb24-2cbedff7935c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/pages/home/components/AutocompleteContainer.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/pages/home/components/GuessesContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/components/AboutMenu.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20240106193116.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20240106193930.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20240106200226.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Command/GetDataTrendingCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Command/SetDailyMovieCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/HistoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/History.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Manager/HistoryManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/HistoryRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7eadc9a-a374-4116-acfa-d6ffddf641a5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7eadc9a-a374-4116-acfa-d6ffddf641a5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tagline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tagline.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7eadc9a-a374-4116-acfa-d6ffddf641a5/storage_v2/_src_/database/tagline.jhK3ow/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7eadc9a-a374-4116-acfa-d6ffddf641a5/storage_v2/_src_/database/tagline.jhK3ow/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/TabSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/TabSelector.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/AutocompleteContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/AutocompleteContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/GuessesContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/GuessesContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/TabSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/components/TabSelector.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/TaglineContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/TaglineContainer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/not-found/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/not-found/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/GetDataCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/GetDataTopCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Movie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager/MovieManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/MovieManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,6 +233,7 @@
       <recent name="$PROJECT_DIR$/assets/js/pages/home/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/js/pages/components" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/src/Service" />
     </key>
@@ -252,7 +262,7 @@
       <workItem from="1704127669219" duration="7289000" />
       <workItem from="1704493343461" duration="11900000" />
       <workItem from="1704556413690" duration="99000" />
-      <workItem from="1704556536781" duration="5906000" />
+      <workItem from="1704556536781" duration="21170000" />
     </task>
     <servers />
   </component>

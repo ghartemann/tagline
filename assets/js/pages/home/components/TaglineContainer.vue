@@ -1,7 +1,7 @@
 <template>
     <div class="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-10">
         <div class="tw-text-5xl tw-text-white tw-text-center tw-select-none">
-            {{ tagline }}
+            {{ loading === true ? '...' : movie.tagline }}
         </div>
     </div>
 </template>
@@ -10,13 +10,18 @@
 import {ref, onMounted, watch} from 'vue';
 import axios from "axios";
 
-const tagline = ref('');
+const loading = ref(true);
+const movie = ref(null);
 
 function fetchTagline() {
-    axios.get('/movie/tagline').then((r) => {
-        tagline.value = r.data;
+    loading.value = true;
+
+    axios.get('/history/newest/trending').then((r) => {
+        movie.value = r.data.movie;
     }).catch((e) => {
         console.log(e);
+    }).finally(() => {
+        loading.value = false;
     });
 }
 

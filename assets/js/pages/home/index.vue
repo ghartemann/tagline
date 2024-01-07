@@ -2,11 +2,11 @@
     <div>
         <AboutMenu></AboutMenu>
 
-        <TabSelector></TabSelector>
+        <TabSelector v-model="tab" :theme="props.theme"></TabSelector>
 
-        <div class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-start tw-pt-10">
-            <div class="tw-w-[72rem] tw-flex tw-flex-col tw-gap-24 tw-items-center tw-justify-center">
-                <img src="@images/logo.svg" alt="logo">
+        <div class="tw-w-full tw-h-full tw-flex tw-items-start tw-pt-5">
+            <div class="tw-w-full lg:tw-w-[72rem] tw-mx-auto tw-flex tw-flex-col tw-gap-24 tw-items-center tw-justify-center">
+                <TaglineLogo :theme="tab"></TaglineLogo>
 
                 <div class="tw-w-1/2 tw-flex tw-flex-col tw-gap-10 tw-items-center tw-justify-center">
                     <TaglineContainer></TaglineContainer>
@@ -28,8 +28,24 @@ import {onMounted, ref, watch} from "vue";
 import axios from "axios";
 import TabSelector from "@pages/components/TabSelector.vue";
 import AboutMenu from "@pages/components/AboutMenu.vue";
+import TaglineLogo from "@pages/components/TaglineLogo.vue";
+
+const props = defineProps({
+    theme: {
+        type: Object,
+        required: true
+    }
+});
 
 const verifying = ref(false);
+
+const tab = ref('trending');
+
+const emit = defineEmits(["theme"]);
+
+watch(tab, (value) => {
+    emit('theme', value);
+});
 
 const guess = ref(null);
 const guesses = ref([]);

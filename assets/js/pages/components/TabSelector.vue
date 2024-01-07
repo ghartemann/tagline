@@ -3,8 +3,8 @@
         <div class="tw-flex tw-justify-around tw-gap-10 tw-px-10">
             <div v-for="tab in tabs"
                  @click="click(tab)"
-                 class="tw-text-xl tw-text-white tw-cursor-pointer tw-py-2"
-                 :class="{'tw-text-lemony tw-border-lemony tw-border-b-4': tab.active}"
+                 class="tw-text-xl tw-cursor-pointer tw-py-2"
+                 :class="tab.active === true ? [theme.text.accentColor, theme.border.accentColor, 'tw-border-b-4'].join(' ') : theme.textColor"
             >
                 <v-icon>{{ tab.icon }}</v-icon>
                 {{ tab.name }}
@@ -14,18 +14,24 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {computed, ref} from "vue";
+import {useThemeStore} from "@stores/theme";
 
-const tab = ref('Trending');
+const themeStore = useThemeStore();
+const theme = computed(() => themeStore.theme);
+
+const model = defineModel();
 
 const tabs = ref([
     {
         name: 'Trending',
+        slug: 'trending',
         icon: 'mdi-trending-up',
         active: true,
     },
     {
         name: 'Top 100',
+        slug: 'top',
         icon: 'mdi-trophy-outline',
         active: false,
     }
@@ -37,7 +43,9 @@ function click(item) {
     });
 
     item.active = true;
-    tab.value = item.name;
+    model.value = item.slug;
+
+    themeStore.changeTheme(item.slug);
 }
 </script>
 

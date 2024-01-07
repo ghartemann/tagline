@@ -5,13 +5,14 @@
             v-model="model"
             :items="results"
             :loading="loading"
-            placeholder="Devinez"
+            placeholder="Take a guess"
             :clearable="true"
             :autofocus="true"
             color="white"
             :hide-no-data="true" hide-details
             return-object
             rounded
+            :flat="true"
             :multiple="false"
             class="tw-w-full"
             variant="solo"

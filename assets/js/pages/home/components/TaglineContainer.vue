@@ -1,17 +1,21 @@
 <template>
     <div class="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-10">
-        <div class="tw-text-5xl tw-text-white tw-text-center tw-select-none">
+        <div class="tw-text-5xl tw-text-center tw-select-none" :class="theme.textColor">
             {{ loading === true ? '...' : movie.tagline }}
         </div>
     </div>
 </template>
 
 <script setup>
-import {ref, onMounted, watch} from 'vue';
+import {ref, onMounted, watch, computed} from 'vue';
 import axios from "axios";
+import {useThemeStore} from "@stores/theme";
 
 const loading = ref(true);
 const movie = ref(null);
+
+const themeStore = useThemeStore();
+const theme = computed(() => themeStore.theme);
 
 function fetchTagline() {
     loading.value = true;

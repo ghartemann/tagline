@@ -4,11 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
 
-html {
-  background: #451FDF;
-  height: 100vh;
+* {
+  @apply tw-transition-all;
 }
 
-#app {
-  min-height: 100vh;
+html {
+  @apply tw-h-[100vh];
 }

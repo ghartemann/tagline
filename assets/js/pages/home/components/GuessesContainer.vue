@@ -1,8 +1,8 @@
 <template>
-    <div class="tw-w-full tw-flex tw-flex-col tw-gap-5">
-        <div>{{ props.guesses.length }} / 5 guesses</div>
+    <div :class="theme.textColor">{{ props.guesses.length }} / 5 guesses</div>
 
-        <div v-for="guess in props.guesses" class="tw-flex tw-justify-between tw-items-center">
+    <div class="tw-w-full tw-flex tw-flex-col-reverse tw-gap-5">
+        <div v-for="guess in props.guesses" class="tw-flex tw-justify-between tw-items-center tw-rounded-full tw-p-4 tw-pl-6" :class="theme.bg.secondaryColor">
             <div class="tw-flex tw-gap-4 tw-items-center">
                 <img :src="'https://www.themoviedb.org/t/p/original/' + guess.movie.poster_path"
                      :alt="guess.movie.title + ' cover picture'"
@@ -11,11 +11,11 @@
                 >
 
                 <div>
-                    <div class="tw-font-semibold tw-text-white">
+                    <div class="tw-font-semibold" :class="theme.textColor">
                         {{ guess.movie.title }}
                     </div>
 
-                    <div class="tw-text-white">
+                    <div :class="theme.textColor">
                         ({{ formatDate(guess.movie.release_date, 'year') }})
                     </div>
                 </div>
@@ -39,7 +39,12 @@
 </template>
 
 <script setup>
-import {formatDate} from "../../../composables/Format";
+import {formatDate} from "@composables/Format";
+import {useThemeStore} from "@stores/theme.js";
+import {computed} from "vue";
+
+const themeStore = useThemeStore();
+const theme = computed(() => themeStore.theme);
 
 const props = defineProps({
     guesses: {

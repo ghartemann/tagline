@@ -1,12 +1,17 @@
 <template>
 <div>
-    <v-btn icon elevation="0" class="tw-absolute tw-top-2 tw-left-2 tw-text-lemony tw-z-30" @click="about = !about">
+    <v-btn icon
+           elevation="0"
+           class="tw-absolute tw-top-2 tw-left-2 tw-z-30"
+           :class="theme.textColor"
+           @click="about = !about"
+    >
         <v-icon>{{ about === false ? 'mdi-help' : 'mdi-close' }}</v-icon>
     </v-btn>
 
-    <div class="tw-absolute tw-left-[-18rem] tw-h-[70vh] tw-w-[50rem] tw-bg-azulero-dark tw-rounded-b-full tw-transition-all tw-z-10"
-        :class="about === true ? 'tw-top-0' : 'tw-top-[-70vh]'">
-        <div class="tw-absolute tw-left-[19rem] tw-top-[5rem] tw-text-lg tw-text-lemony tw-w-[30rem] tw-flex tw-flex-col tw-gap-10">
+    <div class="tw-absolute tw-left-[-18rem] tw-h-[70vh] tw-w-[50rem] tw-rounded-b-full tw-transition-all tw-z-10"
+        :class="[about === true ? 'tw-top-0' : 'tw-top-[-70vh]', theme.bg.secondaryColor]">
+        <div class="tw-absolute tw-left-[19rem] tw-top-[5rem] tw-text-lg tw-w-[30rem] tw-flex tw-flex-col tw-gap-10" :class="theme.textColor">
             <div>
                 <span class="tw-font-bold">Tagline</span> is a game where you have to guess the movie from its tagline.
             </div>
@@ -25,16 +30,20 @@
         </div>
     </div>
 
-    <div class="tw-absolute tw-left-[-1.5rem] tw-h-[4.5rem] tw-top-0 tw-w-[6rem] tw-bg-azulero-darker tw-rounded-b-full tw-transition-all tw-z-20"
-         :class="about === false ? 'tw-top-0' : 'tw-top-[-4.5rem]'">
+    <div class="tw-absolute tw-left-[-1.2rem] tw-h-[4.5rem] tw-top-0 tw-w-[6rem] tw-rounded-b-full tw-transition-all tw-z-20"
+         :class="[about === false ? 'tw-top-0' : 'tw-top-[-4.5rem]', theme.bg.tertiaryColor]">
     </div>
 </div>
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {computed, ref} from "vue";
+import {useThemeStore} from "@stores/theme";
 
 const about = ref(false);
+
+const themeStore = useThemeStore();
+const theme = computed(() => themeStore.theme);
 </script>
 
 <style scoped>

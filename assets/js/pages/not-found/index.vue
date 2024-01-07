@@ -9,7 +9,7 @@
         <div class="tw-text-white">{{ randomTagline.tl }} - {{ randomTagline.movie }}</div>
 
         <router-link to="/"
-             class="tw-px-5 tw-py-3 tw-rounded-xl tw-bg-azulero-dark tw-flex tw-items-center tw-justify-center tw-text-center tw-text-white hover:tw-text-lemony tw-text-2xl hover:tw-brightness-110 tw-transition-all tw-cursor-pointer hover:tw-shadow-md">
+             class="tw-px-5 tw-py-3 tw-rounded-xl tw-bg-azulejo-dark tw-flex tw-items-center tw-justify-center tw-text-center tw-text-white hover:tw-text-lemony tw-text-2xl hover:tw-brightness-110 tw-transition-all tw-cursor-pointer hover:tw-shadow-md">
             Go back home
         </router-link>
     </div>

@@ -10,7 +10,7 @@
             :autofocus="true"
             color="white"
             :hide-no-data="true" hide-details
-            return-object
+            :return-object="true"
             rounded
             :flat="true"
             :multiple="false"

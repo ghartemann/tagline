@@ -4,8 +4,8 @@
 
         <TabSelector v-model="tab" :theme="props.theme"></TabSelector>
 
-        <div class="tw-w-full tw-h-full tw-flex tw-items-start tw-pt-5">
-            <div class="tw-w-full lg:tw-w-[72rem] tw-mx-auto tw-flex tw-flex-col tw-gap-24 tw-items-center tw-justify-center">
+        <div class="tw-w-full tw-h-full tw-flex tw-items-start">
+            <div class="tw-w-full lg:tw-w-[72rem] tw-mx-auto tw-flex tw-flex-col tw-gap-16 tw-items-center tw-justify-center">
                 <TaglineLogo :theme="tab"></TaglineLogo>
 
                 <div class="tw-w-1/2 tw-flex tw-flex-col tw-gap-10 tw-items-center tw-justify-center">
@@ -15,14 +15,16 @@
                     </TaglineContainer>
 
                     <AutocompleteContainer
-                        v-if="hasWon === false"
+                        v-if="hasWon === false && hasLost === false"
                         v-model="guess"
                         :history="history">
                     </AutocompleteContainer>
 
                     <GuessesContainer
                         :history="history"
-                        :guesses="guesses">
+                        :guesses="guesses[tab]"
+                        :hasWon="hasWon"
+                        :hasLost="hasLost">
                     </GuessesContainer>
                 </div>
             </div>
@@ -49,21 +51,35 @@ const props = defineProps({
         required: true
     }
 });
+
 const loading = ref(true);
 const verifying = ref(false);
 const tab = ref('trending');
 const guess = ref(null);
-const guesses = ref([]);
+const guesses = ref({
+    trending: [],
+    top: []
+});
 const history = ref({});
 
 const hasWon = computed(() => {
     let hasWon = false;
 
-    if (guesses.value.length > 0) {
-        hasWon = guesses.value[guesses.value.length - 1].result === true;
+    if (guesses.value[tab.value].length > 0) {
+        hasWon = guesses.value[tab.value][guesses.value[tab.value].length - 1].result === true;
     }
 
     return hasWon;
+});
+
+const hasLost = computed(() => {
+    let hasLost = false;
+
+    if (guesses.value[tab.value].length > 0 && guesses.value[tab.value].length === 5) {
+        hasLost = guesses.value[tab.value][guesses.value[tab.value].length - 1].result === false;
+    }
+
+    return hasLost;
 });
 
 onMounted(() => {
@@ -99,7 +115,7 @@ function verify(id) {
         verifyRequest,
         historyRequest,
     ) => {
-        guesses.value[guesses.value.length - 1].result = verifyRequest.data;
+        guesses.value[tab.value][guesses.value[tab.value].length - 1].result = verifyRequest.data;
         history.value = historyRequest.data;
     })).catch((e) => {
         console.error(e);
@@ -115,7 +131,7 @@ watch(tab, (value) => {
 
 watch(guess, (value) => {
     if (value) {
-        guesses.value.push(
+        guesses.value[tab.value].push(
             {
                 movie: value,
                 result: null

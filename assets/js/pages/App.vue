@@ -13,7 +13,7 @@
     </div>
 
     <div
-        class="tw-absolute tw-bottom-0 tw-right-[-18rem] tw-h-[70vh] tw-w-[40rem] tw-rounded-t-full tw-hidden lg:tw-block"
+        class="tw-absolute tw-bottom-0 -tw-right-[18vw] tw-h-[70vh] tw-w-[40vw] tw-rounded-t-full tw-hidden lg:tw-block"
         :class="themes[theme].bg.secondaryColor">
     </div>
 </template>
@@ -27,13 +27,13 @@ const themes = ref({
     trending: {
         bg: {
             accentColor: 'tw-bg-lemony',
-            mainColor: 'tw-bg-azulero',
-            secondaryColor: 'tw-bg-azulero-dark',
+            mainColor: 'tw-bg-azulejo',
+            secondaryColor: 'tw-bg-azulejo-dark',
         },
         text: {
             accentColor: 'tw-text-lemony',
-            mainColor: 'tw-text-azulero',
-            secondaryColor: 'tw-text-azulero-dark',
+            mainColor: 'tw-text-azulejo',
+            secondaryColor: 'tw-text-azulejo-dark',
         },
         textColor: 'tw-text-white'
     },
@@ -48,7 +48,7 @@ const themes = ref({
             mainColor: 'tw-text-rose',
             secondaryColor: 'tw-text-rose-dark',
         },
-        textColor: 'tw-text-azulero-dark'
+        textColor: 'tw-text-azulejo-dark'
     }
 });
 </script>

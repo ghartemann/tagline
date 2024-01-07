@@ -13,12 +13,12 @@ module.exports = {
             },
             colors: {
                 lemony: "#FCFF5B",
-                azulero: "#451FDF",
-                'azulero-dark': "#1F009C",
-                'azulero-darker': "#1b007c",
+                azulejo: "#451FDF",
+                'azulejo-dark': "#1F009C",
+                'azulejo-darker': "#1b007c",
                 rose: "#FFE8FD",
                 'rose-dark': "#FFD6FB",
-                'rose-darker': "#FFA2F6"
+                'rose-darker': "#ff6ff3"
             }
         }
     },

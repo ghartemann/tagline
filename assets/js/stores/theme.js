@@ -8,31 +8,31 @@ export const useThemeStore = defineStore('themes', {
         theme: {
             raw: {
                 accentColor: fullConfig.theme.colors.lemony,
-                mainColor: fullConfig.theme.colors.azulero,
-                secondaryColor: fullConfig.theme.colors['azulero-dark'],
-                tertiaryColor: fullConfig.theme.colors['azulero-darker'],
+                mainColor: fullConfig.theme.colors.azulejo,
+                secondaryColor: fullConfig.theme.colors['azulejo-dark'],
+                tertiaryColor: fullConfig.theme.colors['azulejo-darker'],
                 logo: {
                     text: fullConfig.theme.colors.lemony,
-                    star: fullConfig.theme.colors['azulero-dark']
+                    star: fullConfig.theme.colors['azulejo-dark']
                 }
             },
             bg: {
                 accentColor: 'tw-bg-lemony',
-                mainColor: 'tw-bg-azulero',
-                secondaryColor: 'tw-bg-azulero-dark',
-                tertiaryColor: 'tw-bg-azulero-darker'
+                mainColor: 'tw-bg-azulejo',
+                secondaryColor: 'tw-bg-azulejo-dark',
+                tertiaryColor: 'tw-bg-azulejo-darker'
             },
             text: {
                 accentColor: 'tw-text-lemony',
-                mainColor: 'tw-text-azulero',
-                secondaryColor: 'tw-text-azulero-dark',
-                tertiaryColor: 'tw-text-azulero-darker'
+                mainColor: 'tw-text-azulejo',
+                secondaryColor: 'tw-text-azulejo-dark',
+                tertiaryColor: 'tw-text-azulejo-darker'
             },
             border: {
                 accentColor: 'tw-border-lemony',
-                mainColor: 'tw-border-azulero',
-                secondaryColor: 'tw-border-azulero-dark',
-                tertiaryColor: 'tw-border-azulero-darker'
+                mainColor: 'tw-border-azulejo',
+                secondaryColor: 'tw-border-azulejo-dark',
+                tertiaryColor: 'tw-border-azulejo-darker'
             },
             textColor: 'tw-text-white'
         },
@@ -40,31 +40,31 @@ export const useThemeStore = defineStore('themes', {
             trending: {
                 raw: {
                     accentColor: fullConfig.theme.colors.lemony,
-                    mainColor: fullConfig.theme.colors.azulero,
-                    secondaryColor: fullConfig.theme.colors['azulero-dark'],
-                    tertiaryColor: fullConfig.theme.colors['azulero-darker'],
+                    mainColor: fullConfig.theme.colors.azulejo,
+                    secondaryColor: fullConfig.theme.colors['azulejo-dark'],
+                    tertiaryColor: fullConfig.theme.colors['azulejo-darker'],
                     logo: {
                         text: fullConfig.theme.colors.lemony,
-                        star: fullConfig.theme.colors['azulero-dark']
+                        star: fullConfig.theme.colors['azulejo-dark']
                     }
                 },
                 bg: {
                     accentColor: 'tw-bg-lemony',
-                    mainColor: 'tw-bg-azulero',
-                    secondaryColor: 'tw-bg-azulero-dark',
-                    tertiaryColor: 'tw-bg-azulero-darker'
+                    mainColor: 'tw-bg-azulejo',
+                    secondaryColor: 'tw-bg-azulejo-dark',
+                    tertiaryColor: 'tw-bg-azulejo-darker'
                 },
                 text: {
                     accentColor: 'tw-text-lemony',
-                    mainColor: 'tw-text-azulero',
-                    secondaryColor: 'tw-text-azulero-dark',
-                    tertiaryColor: 'tw-text-azulero-darker'
+                    mainColor: 'tw-text-azulejo',
+                    secondaryColor: 'tw-text-azulejo-dark',
+                    tertiaryColor: 'tw-text-azulejo-darker'
                 },
                 border: {
                     accentColor: 'tw-border-lemony',
-                    mainColor: 'tw-border-azulero',
-                    secondaryColor: 'tw-border-azulero-dark',
-                    tertiaryColor: 'tw-border-azulero-darker'
+                    mainColor: 'tw-border-azulejo',
+                    secondaryColor: 'tw-border-azulejo-dark',
+                    tertiaryColor: 'tw-border-azulejo-darker'
                 },
                 textColor: 'tw-text-white'
             },
@@ -75,7 +75,7 @@ export const useThemeStore = defineStore('themes', {
                     secondaryColor: fullConfig.theme.colors['rose-dark'],
                     tertiaryColor: fullConfig.theme.colors['rose-darker'],
                     logo: {
-                        text: fullConfig.theme.colors.azulero,
+                        text: fullConfig.theme.colors.azulejo,
                         star: fullConfig.theme.colors['rose-darker']
                     }
                 },
@@ -97,7 +97,7 @@ export const useThemeStore = defineStore('themes', {
                     secondaryColor: 'tw-border-rose-dark',
                     tertiaryColor: 'tw-border-rose-darker'
                 },
-                textColor: 'tw-text-azulero-dark'
+                textColor: 'tw-text-azulejo-dark'
             }
         },
     }),

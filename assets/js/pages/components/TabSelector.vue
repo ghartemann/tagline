@@ -3,8 +3,8 @@
         <div class="tw-flex tw-justify-around tw-gap-10 tw-px-10">
             <div v-for="tab in tabs"
                  @click="click(tab)"
-                 class="tw-text-xl tw-cursor-pointer tw-py-2"
-                 :class="tab.active === true ? [theme.text.accentColor, theme.border.accentColor, 'tw-border-b-4'].join(' ') : theme.textColor"
+                 class="tw-text-xl tw-cursor-pointer tw-py-3 tw-flex tw-gap-2"
+                 :class="tab.active === true ? [theme.text.accentColor, theme.border.accentColor, 'tw-border-b-4', 'tw-font-semibold'].join(' ') : theme.textColor"
             >
                 <v-icon>{{ tab.icon }}</v-icon>
                 {{ tab.name }}

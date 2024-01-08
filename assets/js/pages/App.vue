@@ -3,7 +3,7 @@
         @wheel.prevent
         @touchmove.prevent
         @scroll.prevent
-        class="tw-h-[100vh]"
+        class="tw-h-[100vh] tw-overflow-hidden"
         :class="themes[theme].bg.mainColor"
     >
         <router-view

@@ -42,6 +42,7 @@ import GuessesContainer from "@pages/home/components/GuessesContainer.vue";
 import TabSelector from "@pages/components/TabSelector.vue";
 import AboutMenu from "@pages/components/AboutMenu.vue";
 import TaglineLogo from "@pages/components/TaglineLogo.vue";
+import moment from "moment";
 
 const emit = defineEmits(["theme"]);
 
@@ -85,7 +86,7 @@ const hasLost = computed(() => {
 onMounted(() => {
     fetchTagline();
 
-    const guessesFromStorage = localStorage.getItem('guesses');
+    const guessesFromStorage = localStorage.getItem(moment().format('YYYY-MM-DD'));
 
     if (guessesFromStorage) {
         guesses.value = JSON.parse(guessesFromStorage);
@@ -95,7 +96,7 @@ onMounted(() => {
 function fetchTagline() {
     loading.value = true;
 
-    axios.get('/history/newest/trending').then((r) => {
+    axios.get(`/history/newest/${tab.value}`).then((r) => {
         history.value = r.data;
     }).catch((e) => {
         console.log(e);
@@ -109,14 +110,17 @@ function verify(id) {
     loading.value = true;
 
     axios.all([
-        axios.get('/history/verify/trending/' + id),
-        axios.get('/history/newest/' + tab.value)
+        axios.get(`/history/verify/${tab.value}/${id}`),
+        axios.get(`/history/newest/${tab.value}`),
+        axios.get(`/movie/similar/${tab.value}/${id}`)
     ]).then(axios.spread((
         verifyRequest,
         historyRequest,
+        similarRequest
     ) => {
         guesses.value[tab.value][guesses.value[tab.value].length - 1].result = verifyRequest.data;
         history.value = historyRequest.data;
+        guesses.value[tab.value][guesses.value[tab.value].length - 1].similar = similarRequest.data;
     })).catch((e) => {
         console.error(e);
     }).finally(() => {
@@ -127,6 +131,7 @@ function verify(id) {
 
 watch(tab, (value) => {
     emit('theme', value);
+    fetchTagline();
 });
 
 watch(guess, (value) => {
@@ -143,7 +148,8 @@ watch(guess, (value) => {
 });
 
 watch(guesses, (value) => {
-    localStorage.setItem('guesses', JSON.stringify(value));
+    const date = moment().format('YYYY-MM-DD');
+    localStorage.setItem(date, JSON.stringify(value));
 }, {deep: true});
 </script>
 

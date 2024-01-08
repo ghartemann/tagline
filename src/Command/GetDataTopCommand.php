@@ -34,7 +34,8 @@ class GetDataTopCommand extends Command
         $progressBar->start();
 
         foreach ($topRated as $movie) {
-            $this->movieManager->createOrUpdate($movie, MovieTypeEnum::TOP_RATED->value);
+            $similar = $this->tmdbApiConnector->getSimilar($movie['id'])['results'];
+            $this->movieManager->createOrUpdate($movie, $similar, MovieTypeEnum::TOP_RATED->value);
 
             $progressBar->advance();
         }

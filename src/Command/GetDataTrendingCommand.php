@@ -30,7 +30,8 @@ class GetDataTrendingCommand extends Command
         $progressBar->start();
 
         foreach ($trending as $movie) {
-            $this->movieManager->createOrUpdate($movie, MovieTypeEnum::TRENDING->value);
+            $similar = $this->tmdbApiConnector->getSimilar($movie['id'])['results'];
+            $this->movieManager->createOrUpdate($movie, $similar, MovieTypeEnum::TRENDING->value);
 
             $progressBar->advance();
         }

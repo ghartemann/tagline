@@ -41,12 +41,17 @@ class MovieManager extends AbstractManager
     public function searchMovies(string $query): array
     {
         $movies = $this->tmdbApiConnector->searchMovies($query)['results'];
-        $movies = array_filter($movies, fn($movie) => $movie['poster_path'] !== null && $movie['poster_path'] !== '' && $movie['release_date'] !== null && $movie['release_date'] !== '');
+        $movies = array_filter($movies, fn($movie) =>
+            $movie['poster_path'] !== null
+            && $movie['poster_path'] !== ''
+            && $movie['release_date'] !== null
+            && $movie['release_date'] !== ''
+        );
 
         return array_values($movies);
     }
 
-    public function createOrUpdate(array $movie, string $movieType): void
+    public function createOrUpdate(array $movie, array $similar, string $movieType): void
     {
         $details = $this->tmdbApiConnector->getDetails($movie['id']);
         $detailsFr = $this->tmdbApiConnector->getDetailsFr($movie['id']);
@@ -72,8 +77,28 @@ class MovieManager extends AbstractManager
         $mov->setTagline($details['tagline']);
         $mov->setTaglineFr($detailsFr['tagline']);
         $mov->setTmdbId($movie['id']);
+        $mov->setSimilarMovies($similar);
         $mov->setType($movieType);
 
         $this->persist($mov, true);
+    }
+
+    public function getSimilar(int $id): bool
+    {
+        return $this->tmdbApiConnector->getSimilar($id)['results'];
+    }
+
+    public function isSimilar(int $idDailyMovie, int $guessesIdMovie): bool
+    {
+        $isSimilar = false;
+        $similarMovies = $this->findOneBy(['tmdbId' => $idDailyMovie])->getSimilarMovies();
+
+        foreach ($similarMovies as $similarMovie) {
+            if ($similarMovie['id'] === $guessesIdMovie) {
+                $isSimilar = true;
+            }
+        }
+
+        return $isSimilar;
     }
 }

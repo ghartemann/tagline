@@ -1,10 +1,10 @@
 <template>
     <div v-if="props.hasWon === true" class="tw-text-lg" :class="theme.textColor">
-        Congratulations! {{ nbWinnersHumanized }} found the answer before you did.
+        Congratulations! {{ getNbWinnersHumanized(-1) }} found the answer before you did.
     </div>
 
     <div v-if="props.hasLost === true" class="tw-text-lg" :class="theme.textColor">
-        Looks like you've lost. {{ nbWinnersHumanized + (nbWinners > 0 ? " didn't and" : '') }} got the answer.
+        Looks like you've lost. {{ getNbWinnersHumanized() + (nbWinners > 0 ? " didn't and" : '') }} got the answer.
     </div>
 
     <div class="tw-w-full tw-flex tw-flex-col-reverse tw-gap-3">
@@ -18,12 +18,13 @@
 
                 <div>
                     <div class="tw-font-semibold" :class="theme.textColor">
-                        {{ guess.movie.title }}
+                        <a :href="'https://www.themoviedb.org/movie/' + guess.movie.id" target="_blank" class="tw-font-light">
+                            <span class="tw-font-semibold">{{ guess.movie.title }}</span>
+                            ({{ useFormatDate(guess.movie.release_date, 'year') }})
+                        </a>
                     </div>
 
-                    <div :class="theme.textColor">
-                        ({{ useFormatDate(guess.movie.release_date, 'year') }})
-                    </div>
+                    <div :class="theme.textColor">{{ guess.similar === true ? 'You\'re close' : '' }}</div>
                 </div>
             </div>
 
@@ -51,7 +52,7 @@
 </template>
 
 <script setup>
-import {useFormatDate, useFormatNumber} from "@composables/Format";
+import {useFormatDate} from "@composables/Format";
 import {useThemeStore} from "@stores/theme.js";
 import {computed} from "vue";
 
@@ -87,15 +88,17 @@ const nbWinners = computed(() => {
     return nbWinners;
 });
 
-const nbWinnersHumanized = computed(() => {
-    if (nbWinners.value === 0) {
+function getNbWinnersHumanized(substract = 0) {
+    const winners = nbWinners.value + substract;
+
+    if (winners === 0) {
         return 'Nobody';
-    } else if (nbWinners.value === 1) {
+    } else if (winners === 1) {
         return '1 person';
-    } else if (nbWinners.value > 1) {
-        return useFormatNumber(nbWinners.value) + ' people';
+    } else {
+        return winners + ' people';
     }
-});
+}
 </script>
 
 <style scoped>

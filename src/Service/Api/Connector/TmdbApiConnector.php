@@ -111,4 +111,24 @@ readonly class TmdbApiConnector
             throw new Exception($e->getMessage());
         }
     }
+
+    public function getSimilar(int $id): array
+    {
+        try {
+            $response = $this->client->request(
+                'GET',
+                "https://api.themoviedb.org/3/movie/$id/similar",
+                [
+                    'headers' => [
+                        'accept' => 'application/json',
+                        'Authorization' => 'Bearer ' . $_ENV['API_BEARER'],
+                    ]
+                ]
+            );
+
+            return json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
+        } catch(\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

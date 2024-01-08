@@ -52,6 +52,9 @@ class Movie
     #[ORM\Column]
     private ?int $nbTimesSelected = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $similarMovies = null;
+
     public function __construct()
     {
         $this->histories = new ArrayCollection();
@@ -208,6 +211,18 @@ class Movie
     public function setNbTimesSelected(int $nbTimesSelected): static
     {
         $this->nbTimesSelected = $nbTimesSelected;
+
+        return $this;
+    }
+
+    public function getSimilarMovies(): ?array
+    {
+        return $this->similarMovies;
+    }
+
+    public function setSimilarMovies(?array $similarMovies): static
+    {
+        $this->similarMovies = $similarMovies;
 
         return $this;
     }

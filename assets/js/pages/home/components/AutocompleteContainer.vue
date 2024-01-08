@@ -11,12 +11,12 @@
             color="white"
             :hide-no-data="true" hide-details
             :return-object="true"
-            rounded
             :flat="true"
             :multiple="false"
             class="tw-w-full"
+            :on-update:menu="() => changeStyle"
             variant="solo"
-            :menu-props="{maxHeight: 200, closeOnContentClick: true, closeOnBack: true}">
+            :menu-props='{maxHeight: 300, closeOnContentClick: true, closeOnBack: true, "update:modelValue": () => changeStyle}'>
             <template #item="{ props, item }">
                 <v-list-item
                     v-bind="props"
@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import {ref, watch} from 'vue';
+import {onMounted, ref, watch} from 'vue';
 import axios from "axios";
 import {useFormatDate} from "@composables/Format";
 
@@ -52,10 +52,18 @@ const props = defineProps({
     }
 });
 
+onMounted(() => {
+
+});
+
 const loading = ref(false);
 const selectedId = ref(null);
 const searchTimeout = ref(null);
 const results = ref([]);
+
+function changeStyle() {
+    console.log('test')
+}
 
 function search(value) {
     if (searchTimeout.value !== null) {
@@ -87,9 +95,14 @@ watch(() => model.value, (value) => {
 </script>
 
 <style lang="scss">
+.v-locale--is-ltr {
+    border-radius: 2rem 2rem 2rem 2rem !important;
+}
+
 .v-autocomplete__content {
     margin-top: 50px !important;
-    border-radius: 2rem !important;
+    border-radius: 0 0 2rem 2rem !important;
+    box-shadow: none;
 }
 
 .v-list {

@@ -5,7 +5,9 @@
                :class="theme.textColor"
                @click="about = !about"
         >
-            <v-icon>{{ about === false ? 'mdi-help' : 'mdi-close' }}</v-icon>
+            <v-icon :class="{'tw-animate-pulse': about === false}">
+                {{ about === false ? 'mdi-help' : 'mdi-close' }}
+            </v-icon>
         </v-btn>
 
         <div class="tw-absolute tw-left-[-18rem] tw-h-[70vh] tw-w-[50rem] tw-rounded-b-full tw-transition-all tw-z-10"

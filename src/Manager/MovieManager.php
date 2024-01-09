@@ -91,7 +91,7 @@ class MovieManager extends AbstractManager
     public function isSimilar(int $idDailyMovie, int $guessesIdMovie): bool
     {
         $isSimilar = false;
-        $similarMovies = $this->findOneBy(['tmdbId' => $idDailyMovie])->getSimilarMovies();
+        $similarMovies = $this->findOneBy(['tmdbId' => $idDailyMovie])->getSimilarMovies() ?? [];
 
         foreach ($similarMovies as $similarMovie) {
             if ($similarMovie['id'] === $guessesIdMovie) {

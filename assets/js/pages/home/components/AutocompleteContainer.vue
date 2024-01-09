@@ -4,7 +4,6 @@
             @update:search="search($event)"
             v-model="model"
             :items="results"
-            :loading="loading"
             placeholder="Take a guess"
             :clearable="true"
             :autofocus="true"
@@ -14,9 +13,8 @@
             :flat="true"
             :multiple="false"
             class="tw-w-full"
-            :on-update:menu="() => changeStyle"
             variant="solo"
-            :menu-props='{maxHeight: 300, closeOnContentClick: true, closeOnBack: true, "update:modelValue": () => changeStyle}'>
+            :menu-props='{maxHeight: 300, closeOnContentClick: true, closeOnBack: true, maxWidth: 300}'>
             <template #item="{ props, item }">
                 <v-list-item
                     v-bind="props"
@@ -39,31 +37,16 @@
 </template>
 
 <script setup>
-import {onMounted, ref, watch} from 'vue';
+import {computed, onMounted, ref, watch} from 'vue';
 import axios from "axios";
 import {useFormatDate} from "@composables/Format";
 
 const model = defineModel();
 
-const props = defineProps({
-    history: {
-        type: Object,
-        required: true
-    }
-});
-
-onMounted(() => {
-
-});
-
 const loading = ref(false);
 const selectedId = ref(null);
 const searchTimeout = ref(null);
 const results = ref([]);
-
-function changeStyle() {
-    console.log('test')
-}
 
 function search(value) {
     if (searchTimeout.value !== null) {
@@ -92,20 +75,28 @@ watch(() => model.value, (value) => {
         selectedId.value = value.id;
     }
 });
+
+const backgroundJunction = computed(() => {
+    return loading.value === true && results.value.length === 0 ? 'transparent' : 'white';
+});
 </script>
 
 <style lang="scss">
 .v-locale--is-ltr {
-    border-radius: 2rem 2rem 2rem 2rem !important;
+    border-radius: 2rem !important;
 }
 
 .v-autocomplete__content {
-    margin-top: 50px !important;
     border-radius: 0 0 2rem 2rem !important;
     box-shadow: none;
 }
 
 .v-list {
-    padding: 0.5rem;
+    @apply tw-p-2;
+}
+
+.v-autocomplete--active-menu {
+    border-radius: 2rem 2rem 0 0 !important;
+    background-color: v-bind(backgroundJunction) !important;
 }
 </style>

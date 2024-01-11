@@ -7,7 +7,7 @@
                  :class="tab.active === true ? [theme.text.accentColor, theme.border.accentColor, 'tw-border-b-4', 'tw-font-semibold'].join(' ') : theme.textColor"
             >
                 <v-icon>{{ tab.icon }}</v-icon>
-                {{ tab.name }}
+                {{ translations.tabSelector[tab.slug][language] }}
             </div>
         </div>
     </div>
@@ -16,21 +16,24 @@
 <script setup>
 import {computed, ref} from "vue";
 import {useThemeStore} from "@stores/theme";
+import {useLanguageStore} from "@stores/language";
 
 const themeStore = useThemeStore();
 const theme = computed(() => themeStore.theme);
+
+const languageStore = useLanguageStore();
+const language = computed(() => languageStore.language);
+const translations = computed(() => languageStore.translations);
 
 const model = defineModel();
 
 const tabs = ref([
     {
-        name: 'Trending',
         slug: 'trending',
         icon: 'mdi-trending-up',
         active: true,
     },
     {
-        name: 'Top 100',
         slug: 'top',
         icon: 'mdi-trophy-outline',
         active: false,

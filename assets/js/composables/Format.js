@@ -30,3 +30,11 @@ export function useFormatDate(date, format) {
 export function useFormatNumber(number) {
     return new Intl.NumberFormat('fr-FR').format(number);
 }
+
+export function useLastCharDot(text) {
+    if (text && text.charAt(text.length - 1) !== '.' && text.charAt(text.length - 1) !== '!' && text.charAt(text.length - 1) !== '?') {
+        text = text + '.';
+    }
+
+    return text
+}

@@ -1,19 +1,17 @@
 <template>
-    <div
-        @wheel.prevent
+    <div @wheel.prevent
         @touchmove.prevent
         @scroll.prevent
         class="tw-h-[100vh] tw-overflow-hidden"
         :class="themes[theme].bg.mainColor"
     >
         <router-view
-            @theme="theme = $event"
-            :theme="themes[theme]"
-        ></router-view>
+            @theme="(event) => theme = event"
+            :theme="themes[theme]">
+        </router-view>
     </div>
 
-    <div
-        class="tw-absolute tw-bottom-0 -tw-right-[18vw] tw-h-[70vh] tw-w-[40vw] tw-rounded-t-full tw-hidden lg:tw-block"
+    <div class="tw-absolute tw-bottom-0 -tw-right-[18vw] tw-h-[70vh] tw-w-[40vw] tw-rounded-t-full tw-hidden lg:tw-block"
         :class="themes[theme].bg.secondaryColor">
     </div>
 </template>

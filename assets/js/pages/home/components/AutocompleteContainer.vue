@@ -4,7 +4,7 @@
             @update:search="search($event)"
             v-model="model"
             :items="results"
-            placeholder="Take a guess"
+            :placeholder="translations.autocomplete.placeholder[language]"
             :clearable="true"
             :autofocus="true"
             color="white"
@@ -37,9 +37,14 @@
 </template>
 
 <script setup>
-import {computed, onMounted, ref, watch} from 'vue';
+import {computed, ref, watch} from 'vue';
 import axios from "axios";
 import {useFormatDate} from "@composables/Format";
+import {useLanguageStore} from "@stores/language";
+
+const languageStore = useLanguageStore();
+const language = computed(() => languageStore.language);
+const translations = computed(() => languageStore.translations);
 
 const model = defineModel();
 
@@ -86,17 +91,19 @@ const backgroundJunction = computed(() => {
     border-radius: 2rem !important;
 }
 
-.v-autocomplete__content {
-    border-radius: 0 0 2rem 2rem !important;
-    box-shadow: none;
+.v-autocomplete {
+    &--active-menu {
+        border-radius: 2rem 2rem 0 0 !important;
+        background-color: v-bind(backgroundJunction) !important;
+    }
+
+    &__content {
+        border-radius: 0 0 2rem 2rem !important;
+        box-shadow: none;
+    }
 }
 
 .v-list {
     @apply tw-p-2;
-}
-
-.v-autocomplete--active-menu {
-    border-radius: 2rem 2rem 0 0 !important;
-    background-color: v-bind(backgroundJunction) !important;
 }
 </style>

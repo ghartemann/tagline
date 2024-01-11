@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AboutMenu></AboutMenu>
+        <TopMenu></TopMenu>
 
         <TabSelector v-model="tab" :theme="props.theme"></TabSelector>
 
@@ -40,9 +40,9 @@ import TaglineContainer from "@pages/home/components/TaglineContainer.vue";
 import AutocompleteContainer from "@pages/home/components/AutocompleteContainer.vue";
 import GuessesContainer from "@pages/home/components/GuessesContainer.vue";
 import TabSelector from "@pages/components/TabSelector.vue";
-import AboutMenu from "@pages/components/AboutMenu.vue";
 import TaglineLogo from "@pages/components/TaglineLogo.vue";
 import moment from "moment";
+import TopMenu from "@pages/components/TopMenu.vue";
 
 const emit = defineEmits(["theme"]);
 
@@ -86,10 +86,10 @@ const hasLost = computed(() => {
 onMounted(() => {
     fetchTagline();
 
-    const guessesFromStorage = localStorage.getItem(moment().format('YYYY-MM-DD'));
+    const guessesFromStorage = localStorage.getItem('guesses');
 
     if (guessesFromStorage) {
-        guesses.value = JSON.parse(guessesFromStorage);
+        guesses.value = JSON.parse(guessesFromStorage)[moment().format('YYYY-MM-DD')];
     }
 });
 
@@ -149,7 +149,7 @@ watch(guess, (value) => {
 
 watch(guesses, (value) => {
     const date = moment().format('YYYY-MM-DD');
-    localStorage.setItem(date, JSON.stringify(value));
+    localStorage.setItem('guesses', JSON.stringify({...JSON.parse(localStorage.getItem('guesses')), [date]: value}));
 }, {deep: true});
 </script>
 

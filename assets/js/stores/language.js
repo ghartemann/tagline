@@ -52,8 +52,10 @@ export const useLanguageStore = defineStore('language', {
                     fr: 'Ok super mais ton jeu il marche comment ?'
                 },
                 about5: {
-                    en: 'You have 5 guesses. For each guess, type the name<br> of the movie you think the tagline is ' +
-                        'from into the big, unmissable field at the center of your screen and<br> select the right movie.',
+                    en: 'You have five guesses. For each attempt, enter the name of the movie you believe the tagline ' +
+                        'is from into the pretty large, unmissable field at the center of your screen and select the ' +
+                        'correct movie from the generated list. Feel<br>free to translate the title to French if ' +
+                        'necessary using<br>the adjacent button (the translation is sourced from<br>TmDB as well).',
                     fr: 'Vous avez droit à 5 essais. Pour chaque essai, tapez le<br> nom du film dont vous pensez que la ' +
                         'tagline est issue<br> dans l\'énorme champ au centre de votre écran puis sélectionnez le bon film.'
                 },
@@ -66,6 +68,14 @@ export const useLanguageStore = defineStore('language', {
                 language: {
                     en: 'Language',
                     fr: 'Langue'
+                },
+                difficulty: {
+                    en: 'Difficulty',
+                    fr: 'Difficulté'
+                },
+                difficulty2: {
+                    en: 'Very hard',
+                    fr: 'Très difficile'
                 }
             }
         }

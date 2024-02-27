@@ -10,8 +10,8 @@
             </v-icon>
         </v-btn>
 
-        <div class="tw-absolute tw-left-[-18rem] tw-h-[70vh] tw-w-[50rem] tw-rounded-b-full tw-transition-all tw-z-10 tw-shadow-lg"
-            :class="[about === true ? 'tw-top-0' : 'tw-top-[-70vh]', theme.bg.secondaryColor]">
+        <div class="tw-absolute tw-left-[-18rem] tw-h-[80vh] tw-w-[50rem] tw-rounded-b-full tw-transition-all tw-z-10 tw-shadow-lg"
+            :class="[about === true ? 'tw-top-0' : 'tw-top-[-85vh]', theme.bg.secondaryColor]">
             <div class="tw-absolute tw-left-[19rem] tw-top-[5rem] tw-text-lg tw-w-[30rem] tw-flex tw-flex-col tw-gap-10" :class="theme.textColor">
                 <div>
                     <span class="tw-font-bold" :class="theme.text.accentColor">tagline.</span>
@@ -72,6 +72,18 @@
                         {{ languages[language].flag }} {{ languages[language].name }}
                     </div>
                 </div>
+
+                <div>
+                    <div class="tw-font-bold" :class="theme.text.accentColor">
+                        {{ translations.settings.difficulty[language] }}
+                    </div>
+
+                    <div>
+                        {{ translations.settings.difficulty2[language] }}
+                    </div>
+                </div>
+
+                <div>v1.{{ test }}</div>
             </div>
         </div>
 
@@ -86,6 +98,7 @@ import {computed, ref, watch} from "vue";
 import {useThemeStore} from "@stores/theme";
 import {useLanguageStore} from "@stores/language";
 
+const test = process.env.VUE_APP_TEST;
 const about = ref(false);
 const settings = ref(false);
 

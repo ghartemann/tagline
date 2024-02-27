@@ -24,6 +24,7 @@ class GetDataTrendingCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $oldTreanding = $this->movieManager->findBy(['type' => MovieTypeEnum::TRENDING->value]);
         $trending = $this->tmdbApiConnector->getTrending()['results'];
 
         $progressBar = new ProgressBar($output, count($trending));
@@ -35,6 +36,14 @@ class GetDataTrendingCommand extends Command
 
             $progressBar->advance();
         }
+
+        foreach ($oldTreanding as $movie) {
+            if (!in_array($movie->getTmdbId(), array_column($trending, 'id'))) {
+                $movie->setDisplayed(false);
+            }
+        }
+
+        $this->movieManager->flush();
 
         return Command::SUCCESS;
     }

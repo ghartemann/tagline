@@ -16,6 +16,7 @@ module.exports = {
                 azulejo: "#451FDF",
                 'azulejo-dark': "#1F009C",
                 'azulejo-darker': "#1b007c",
+                purply: "#7b00e3",
                 rose: "#FFE8FD",
                 'rose-dark': "#FFD6FB",
                 'rose-darker': "#ff6ff3"

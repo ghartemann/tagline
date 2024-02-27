@@ -5,18 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47c8f7ec-18b2-4c52-bb24-2cbedff7935c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/stores/language.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/routes/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7eadc9a-a374-4116-acfa-d6ffddf641a5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7eadc9a-a374-4116-acfa-d6ffddf641a5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tagline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tagline.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/composables/Format.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/composables/Format.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/components/AboutMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/components/TopMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/components/TabSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/components/TabSelector.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/components/TaglineLogo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/components/TaglineLogo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/AutocompleteContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/AutocompleteContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/home/components/TaglineContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/components/TaglineContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/home/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers/hello_controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/components/TopMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/components/TopMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/stores/language.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/stores/language.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/stores/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/stores/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/GetDataTrendingCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/GetDataTrendingCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bootstrap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +37,9 @@
   </component>
   <component name="ComposerSettings" notifyAboutMissingVendor="false" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -145,7 +158,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
-      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
@@ -176,6 +188,7 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -189,36 +202,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/guillaumehartemann/Dev/Projets/tagline/assets/js/pages/components/svg",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "ts.external.directory.path": "/Users/guillaumehartemann/Dev/Projets/tagline/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/guillaumehartemann/Dev/Projets/tagline/assets/js/pages/components/svg&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/guillaumehartemann/Dev/Projets/tagline/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/js/pages/components/svg" />
@@ -256,7 +269,9 @@
       <workItem from="1704127669219" duration="7289000" />
       <workItem from="1704493343461" duration="11900000" />
       <workItem from="1704556413690" duration="99000" />
-      <workItem from="1704556536781" duration="67248000" />
+      <workItem from="1704556536781" duration="74547000" />
+      <workItem from="1705738223335" duration="2105000" />
+      <workItem from="1706770364544" duration="1870000" />
     </task>
     <servers />
   </component>

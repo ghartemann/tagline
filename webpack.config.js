@@ -1,4 +1,6 @@
 const Encore = require('@symfony/webpack-encore');
+const env = require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
+console.log(env)
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -23,7 +25,7 @@ Encore
     .addEntry('app', './assets/app.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    .enableStimulusBridge('./assets/controllers.json')
+    // .enableStimulusBridge('./assets/controllers.json')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -44,6 +46,22 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
+
+    .configureDefinePlugin(options => {
+        options.__VUE_OPTIONS_API__ = false;
+        options.__VUE_PROD_DEVTOOLS__ = false;
+        options.__VUE_PROD_HYDRATION_MISMATCH_DETAILS__ = false;
+
+        const env = dotenv.config();
+        console.log(env.local)
+
+        if (env.error) {
+            throw env.error;
+        }
+
+        // options['process.env'].TEST = JSON.stringify(env.parsed.TEST);
+    })
+
 
     // configure Babel
     // .configureBabel((config) => {
@@ -74,15 +92,9 @@ Encore
         "@stores": `${__dirname}/assets/js/stores`
     })
 
-    // uncomment if you use React
-    //.enableReactPreset()
-
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
     //.enableIntegrityHashes(Encore.isProduction())
-
-    // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();

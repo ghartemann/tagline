@@ -70,7 +70,7 @@ export const useThemeStore = defineStore('themes', {
             },
             top: {
                 raw: {
-                    accentColor: fullConfig.theme.colors['rose-darker'],
+                    accentColor: fullConfig.theme.colors.purply,
                     mainColor: fullConfig.theme.colors.rose,
                     secondaryColor: fullConfig.theme.colors['rose-dark'],
                     tertiaryColor: fullConfig.theme.colors['rose-darker'],
@@ -80,19 +80,19 @@ export const useThemeStore = defineStore('themes', {
                     }
                 },
                 bg: {
-                    accentColor: 'tw-bg-rose-darker',
+                    accentColor: 'tw-bg-purply',
                     mainColor: 'tw-bg-rose',
                     secondaryColor: 'tw-bg-rose-dark',
                     tertiaryColor: 'tw-bg-rose-darker'
                 },
                 text: {
-                    accentColor: 'tw-text-rose-darker',
+                    accentColor: 'tw-text-purply',
                     mainColor: 'tw-text-rose',
                     secondaryColor: 'tw-text-rose-dark',
                     tertiaryColor: 'tw-text-rose-darker'
                 },
                 border: {
-                    accentColor: 'tw-border-rose-darker',
+                    accentColor: 'tw-border-purply',
                     mainColor: 'tw-border-rose',
                     secondaryColor: 'tw-border-rose-dark',
                     tertiaryColor: 'tw-border-rose-darker'
